@@ -1,5 +1,14 @@
 # Blog API
 
+jar file 다운로드 경로
+[files/blog-app-1.0.0.jar](https://github.com/qweasd147/kopirng-project/raw/6a088a6def028a3d512b4775218b979d11e86be2/blog-api/files/blog-app-1.0.0.jar)
+
+다운로드 이후
+
+```sh
+$ java -jar blog-app-1.0.0.jar
+```
+
 ## 1. 사용 기술 및 라이브러리
 
 - java 17 (kotlin 1.7.22)
@@ -15,7 +24,8 @@
 ### 그 외 오픈소스 라이브러리
 
 1. [kotlin-logging](https://github.com/oshai/kotlin-logging)
-   코틀린을 활용한 log를 남기는 라이브러리로, 만약 무거운 클래스의 toString 메소드를 debug 레벨에서만 남기려면 아래와 같이 사용해야 합니다.
+
+코틀린을 활용한 log를 남기는 라이브러리로, 만약 무거운 클래스의 toString 메소드를 debug 레벨에서만 남기려면 아래와 같이 사용해야 합니다.
 
 ```kotlin
 if (logger.isDebugEnabled)
@@ -66,14 +76,14 @@ Given: 'circuit breaker' 가 open 상태 일 때
 1. jar 파일 실행
 
 ```sh
-$ java -jar blog-api-1.0.0.jar
+$ java -jar blog-app-1.0.0.jar
 ```
 
 2. 또는 직접 빌드 후 jar 파일 실행
 
 ```sh
 $ ./gradlew build
-$ java -jar build/libs/blog-api-1.0.0.jar
+$ java -jar blog-app/build/libs/blog-app-1.0.0.jar
 ```
 
 ## 3. API 명세
