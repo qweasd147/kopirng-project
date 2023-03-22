@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: blog-app-api
+  config:
+    import:
+      - application-external-api.yml
+      #- application-data-r2dbc.yml

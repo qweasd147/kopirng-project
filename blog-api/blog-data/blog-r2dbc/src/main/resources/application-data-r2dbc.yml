@@ -1,0 +1,28 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  r2dbc:
+    url: r2dbc:h2:mem:///test_db
+    username: sa
+    password:
+  data:
+    jdbc:
+      repositories:
+        enabled: false
+  sql:
+    init:
+      schema-locations: classpath:db/h2/schema.sql
+
+#debug: true
+
+#logging:
+#  level:
+#    org.springframework.r2dbc.core.DefaultDatabaseClient: debug # for query
+#    org.springframework.data.r2dbc: DEBUG
+#    org.springframework.r2dbc.R2dbcTransactionManager: debug # for transaction
+#    org.springframework.boot.context.config: trace # for check import yml
+#    jakarta.validation: trace
+#    org.springframework.r2dbc.connection: trace
+#    io.r2dbc.pool: DEBUG

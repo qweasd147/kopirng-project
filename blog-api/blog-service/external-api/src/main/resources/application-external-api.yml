@@ -1,0 +1,24 @@
+spring:
+  config:
+    import:
+      - application-data-collector.yml
+
+apikey:
+  kakao: aaaa
+  naver:
+    clientId: 5ovsZSSynSCZMTdN6oyV
+    clientSecret: bbbb
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 4    #집계 기준. 초 단위면 x초 동안, 카운트는 단위 요청 수
+      permittedNumberOfCallsInHalfOpenState: 10
+      waitDurationInOpenState: 1000
+      failureRateThreshold: 50  #open 될 비율
+      registerHealthIndicator: true
+
+
+#logging:
+#  level:
+#    io.github.resilience4j: DEBUG

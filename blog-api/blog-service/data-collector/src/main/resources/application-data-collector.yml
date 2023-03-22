@@ -1,0 +1,9 @@
+spring:
+  config:
+    import:
+      - application-data-r2dbc.yml
+
+#logging:
+#  level:
+#    com.collector.event.subscriber: debug
+#    com.collector.domain.search: debug
