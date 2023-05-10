@@ -10,9 +10,7 @@ import com.external.blog.provider.kakao.KAKAO_CIRCUIT_BREAKER_NAME
 import io.github.resilience4j.circuitbreaker.CircuitBreaker
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry
 import kotlinx.coroutines.*
-import mu.KotlinLogging
 import org.springframework.stereotype.Component
-import kotlin.coroutines.coroutineContext
 
 @Component
 class BlogApiClient internal constructor(
@@ -34,6 +32,7 @@ class BlogApiClient internal constructor(
             BlogSearchEventDto(keyword = searchDto.query)
         )
 
+        //provider 추가될때마다 이거 수정해야될수도 이씀
         return coroutineScope.async {
 
             if (isDisabledState()) {

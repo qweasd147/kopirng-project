@@ -4,10 +4,10 @@ spring:
       - application-data-collector.yml
 
 apikey:
-  kakao: f51343094d9fb8b8782b525db07cc2ce
+  kakao: kakao_api_key
   naver:
-    clientId: 5ovsZSSynSCZMTdN6oyV
-    clientSecret: vTaicma2H1
+    clientId: client_id
+    clientSecret: client_secret
 
 resilience4j.circuitbreaker:
   configs:

@@ -8,7 +8,7 @@ create table search_log
     primary key (idx)
 );
 
-CREATE INDEX INDEX_SearchLog_Contents ON search_log (contents);
+-- CREATE INDEX INDEX_SearchLog_Contents ON search_log (contents);
 
 create table search_word
 (

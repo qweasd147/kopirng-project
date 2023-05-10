@@ -1,14 +1,5 @@
 # Blog API
 
-jar file 다운로드 경로
-[files/blog-app-1.0.0.jar](https://github.com/qweasd147/kopirng-project/raw/6a088a6def028a3d512b4775218b979d11e86be2/blog-api/files/blog-app-1.0.0.jar)
-
-다운로드 이후
-
-```sh
-$ java -jar blog-app-1.0.0.jar
-```
-
 ## 1. 사용 기술 및 라이브러리
 
 - java 17 (kotlin 1.7.22)
@@ -23,63 +14,13 @@ $ java -jar blog-app-1.0.0.jar
 
 ### 그 외 오픈소스 라이브러리
 
-1. [kotlin-logging](https://github.com/oshai/kotlin-logging)
-
-코틀린을 활용한 log를 남기는 라이브러리로, 만약 무거운 클래스의 toString 메소드를 debug 레벨에서만 남기려면 아래와 같이 사용해야 합니다.
-
-```kotlin
-if (logger.isDebugEnabled)
-    logger.debug("Some $expensive message!")
-```
-
-하지만 해당 라이브러리를 사용하면 함수를 활용해 로그를 동적으로 만들어 간단하게 한줄 처리가 가능합니다.
-
-```kotlin
-logger.debug { "Some $expensive message!" }
-```
-
-2. [mockk](https://github.com/mockk/mockk)
-
-테스트를 위한 라이브러리로 mock + kotlin 스럽게 만들기 위한 도구 정도로 이해 하면 됩니다.
-`mock`을 사용해봤더라면 바로 사용이 가능하며, 아래와 같이 체이닝하여 사용도 간편하게 만들어졌습니다.
-
-```kotlin
-val circuitBreakerRegistry = mockk<circuitBreakerRegistry>()
-every {
-    circuitBreakerRegistry.circuitBreaker(any())
-} returns mockk {
-    every { state } returns CircuitBreaker.State.CLOSED
-}
-// circuitBreakerRegistry.circuitBreaker("circuitBreakerName").state 이 상태값을 stub 하는 예시
-```
-
-3. [kotest](https://kotest.io/)
-
-역시 코틀린 스타일의 테스트 라이브러리로 `Given`, `When`, `Then` 형식으로 분리가 명확하여 차후 테스트코드의 유지보수나 누락 된 테스트 케이스 찾기가 쉬워집니다.
-
-```
-Given: 'circuit breaker' 가 close 상태 일 때
-    When: 블로그 조회 함수(searchBlog)를 호출 하면
-        Then: KakaoProvider에서 검색API 함수를 호출한다
-        Then: 검색 이벤트를 발행한다
-
-Given: 'circuit breaker' 가 open 상태 일 때
-    When: 블로그 조회 함수(searchBlog)를 호출 하면
-        Then: NaverProvider에서 검색API 함수를 호출한다
-        Then: 검색 이벤트를 발행한다
-```
-
-해당 프로젝트에 작성 된 테스트코드를 실행 해보면 이런식으로 리포트를 받을 수 있으며, `kotest`를 사용 안해도 `@Nested` + `inner class` 조합으로도 비슷하게 만들 수 있지만 `Then` 부분, 즉 검증하는 부분을 한줄로 표현하기가 너무 힘들었습니다.
+- [kotlin-logging](https://github.com/oshai/kotlin-logging)
+- [mockk](https://github.com/mockk/mockk)
+- [kotest](https://kotest.io/)
 
 ## 2. 사용방법
 
-1. jar 파일 실행
-
-```sh
-$ java -jar blog-app-1.0.0.jar
-```
-
-2. 또는 직접 빌드 후 jar 파일 실행
+#### 빌드 후 jar 파일 실행
 
 ```sh
 $ ./gradlew build
